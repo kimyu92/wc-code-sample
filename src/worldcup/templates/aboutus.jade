@@ -1,0 +1,203 @@
+doctype html
+- include 'sidebar.html'
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title World Cup - About Us
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // <link href="http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/bootstrap.min.css" rel="stylesheet" />
+    link(href='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/aboutusbootsrap.css', rel='stylesheet')
+    link(href='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/bootstrap-responsive.min.css', rel='stylesheet')
+    link(href='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/preview.min.css', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=PT+Sans:400,700', rel='stylesheet', type='text/css')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', media='all', href='https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/aboutus_background.css')
+    //if IE 7
+      link(href='styles/font-awesome-ie7.min.css', rel='stylesheet')
+    //if IE 8
+      style(type='text/css').
+        .navbar-inner{
+        filter:none;
+        }
+  body
+    .container
+      #demo-1.row-fluid
+        .span10.offset1
+          h4 ABOUT US
+          .tabbable.custom-tabs.tabs-animated.flat.flat-all.hide-label-980.shadow.track-url.auto-scroll
+            ul.nav.nav-tabs
+              li.active
+                a.active(href='#panel1', data-toggle='tab')
+                  i.fa.fa-users
+                  span Group Members
+              li
+                a(href='#panel2', data-toggle='tab')
+                  i.fa.fa-envelope
+                  span Our Location
+              li
+                a(href='#panel3', data-toggle='tab')
+                  i.fa.fa-play-circle-o
+                  span Entertaiment
+            .tab-content
+              #panel1.tab-pane.active
+                .row-fluid
+                  .span5
+                    // <h4><i class="icon-user"></i>&nbsp;&nbsp; Login Here</h4>
+                    // This gouroupuwdpfu
+                    .row
+                      .col-xs-12.col-sm-12
+                        .panel.panel-default
+                          // Adds a little header above contact table
+                          .panel-heading.c-list
+                            // <span class="title">Group Members</span>
+                          // Table of Contacts
+                          ul#contact-list.list-group
+                            // Kim Yu
+                            li.list-group-item
+                              .col-xs-12.col-sm-3
+                                img.img-responsive.img-circle(src='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/kim.jpg', alt='Kim-Yu Ng')
+                              .col-xs-12.col-sm-9
+                                span.name Kim Yu Ng
+                                br
+                                p Github ID: kimyu92
+                                p Role: Full-Stack Happy Hacker
+                              .clearfix
+                  // Documentation for our project
+                  .span4
+                    h4 Site Powered By:
+                    .box
+                      ul
+                        a(href='https://www.python.org/', target='_blank')
+                          li Python 3.4.3+
+                      ul
+                        a(href='https://www.djangoproject.com/', target='_blank')
+                          li Django 1.8.7
+                      ul
+                        a(href='http://www.postgresql.org/', target='_blank')
+                          li PostgresSQL 9.4
+                      ul
+                        a(href='http://tastypieapi.org/', target='_blank')
+                          li Tasty Pie API 0.12.1
+                      ul
+                        a(href='https://pypi.python.org/pypi/pyjade/3.1.0', target='_blank')
+                          li PyJade 3.1.0
+                      ul
+                        a(href='http://gunicorn.org/', target='_blank')
+                          li Gunicorn 19.4
+                      ul
+                        a(href='http://getbootstrap.com/', target='_blank')
+                          li Twitter Bootstrap 3.3.6
+                      ul
+                        a(href='http://www.w3.org/html/logo/', target='_blank')
+                          li HTML 5
+                  // Github Icon and Link
+                  .span3
+                    h4 Our GitHub:
+                    .box.clearfix
+                      center
+                        a(href='https://github.com/kimyu92', target='_blank')
+                          i.fa.fa-github-alt.fa-3x(style='color: black')
+              // Address information
+              // Tab two
+              #panel2.tab-pane
+                .row-fluid
+                  .span5
+                    h4 Our Address
+                    address
+                      strong
+                        | Gates-Dell Complex
+                      br
+                        | Stop D9500, 2317 Speedway
+                      br
+                        | Austin, Texas 78712
+                      br
+                    h4 Contact Us
+                    address
+                      strong Email: 
+                      br
+                      a(href='mailto:#') kimyu.ng(at)outlook(dot)com
+                  // Google Map of GDC
+                  .span7
+                    .row-fluid
+                      .span12
+                        h4 Locate Us
+                        iframe(width='100%', height='300', frameborder='0', style='border:0', src='{{GDC_location}}')
+              // Third tab
+              // Entertainment
+              #panel3.tab-pane
+                .row-fluid
+                  .span5
+                    h4  Mascot
+                    // Pikachu
+                    // http://images.nintendolife.com/news/2013/10/rumour_new_pokemon_game_in_development_focusing_on_pikachu/large.jpg
+                    .col-xs-12.col-sm-12
+                      img.img-responsive.img-circle(src='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/mario2.jpg', alt='mario')
+                  .span3
+                    h4
+                      i.icon-expand-alt
+                      |   Favorite Quote:
+                    .box
+                      p "The is the high point of the god d**n learning outcome!" - Anonymous
+                  .span4
+                    h4 Theme Song
+                    iframe(width='100%', height='166', scrolling='no', frameborder='no', src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/141185053&color=ff5500')
+      script(src='https://code.jquery.com/jquery-1.11.2.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+      script(src='http://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/aboutus/tabs-addon.js')
+      script(type='text/javascript').
+        $(function ()
+        {
+        $("a[href^='#demo']").click(function (evt)
+        {
+        evt.preventDefault();
+        var scroll_to = $($(this).attr("href")).offset().top;
+        $("html,body").animate({ scrollTop: scroll_to - 80 }, 600);
+        });
+        $("a[href^='#bg']").click(function (evt)
+        {
+        evt.preventDefault();
+        $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-image", "url('bgs/" + $(this).data("file") + "')");
+        console.log($(this).data("file"));
+        });
+        $("a[href^='#color']").click(function (evt)
+        {
+        evt.preventDefault();
+        var elm = $(".tabbable");
+        elm.removeClass("grey").removeClass("dark").removeClass("dark-input").addClass($(this).data("class"));
+        if (elm.hasClass("dark dark-input"))
+        {
+        $(".btn", elm).addClass("btn-inverse");
+        }
+        else
+        {
+        $(".btn", elm).removeClass("btn-inverse");
+        }
+        });
+        $(".color-swatch div").each(function ()
+        {
+        $(this).css("background-color", $(this).data("color"));
+        });
+        $(".color-swatch div").click(function (evt)
+        {
+        evt.stopPropagation();
+        $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-color", $(this).data("color"));
+        });
+        $("#texture-check").mouseup(function (evt)
+        {
+        evt.preventDefault();
+        if (!$(this).hasClass("active"))
+        {
+        $("body").css("background-image", "url(bgs/n1.png)");
+        }
+        else
+        {
+        $("body").css("background-image", "none");
+        }
+        });
+        $("a[href='#']").click(function (evt)
+        {
+        evt.preventDefault();
+        });
+        $("a[data-toggle='popover']").popover({
+        trigger:"hover",html:true,placement:"top"
+        });
+        });

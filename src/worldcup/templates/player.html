@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="FIFA World Cup 2014 Brazil">
+    	<meta name="author" content="Kim Yu Ng">
+    	<link rel="icon" href="img/home/soccer-favicon.ico">
+
+    	<title>World Cup 2014 - Player - {{sur_name}}</title>
+
+    	<link href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/players_page/bootstrap.min.css" rel="stylesheet">
+
+    	<!-- Please sync this stylesheet in future with update -->
+    	<link href="/static/css/player/grayscale-mod.css" rel="stylesheet">
+
+    	<!-- Custom Fonts -->
+    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    	<!-- Custom CSS -->
+    	<link href="/static/css/player/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+		<!-- Navigation -->
+    	{% include 'sidebar_player.html' %}
+
+    	<!-- Intro Header -->
+    	<header class="intro">
+        	<div class="intro-body">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-8 col-md-offset-2">
+                        	<h1 class="brand-heading" style = "background: rgba(244, 197, 197, 0.11);">#{{shirt_number}}, {{full_name}}</h1>
+                        	<a href="#player-profile" class="btn btn-circle page-scroll">
+                            	<i class="fa fa-angle-double-down animated"></i>
+                        	</a>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</header>
+
+    	<!-- player-profile Section -->
+    	<section id="player-profile" class="container content-section text-center">
+        	<div class = "container">
+            	<div class = "player-profile-section">
+                	<div id="profile">
+                    	<div class="header-wrap ">
+                        	<div class="title-wrap">
+                            	<h2 class="title">
+                                	<span>Profile</span>
+                            	</h2>
+                        	</div>
+                    	</div>
+                	</div>
+                	
+                	<div class="container">
+                    	<div class="row row-first">
+                        	<section class="col-md-4 article-container" style = "width:25%">
+                            	<div class = "player-info">
+                                	<div class="picture-wrap">
+                                    	<img src="{{player_image}}" class="player img-responsive">
+                                	</div>
+                            	</div>
+                        	</section>
+                        	
+                        	<div class="col-md-4">
+                            	<h2 style="height: 1px;">{{full_name}}</h2>
+
+                            	<li id="player-stats-info" class="role">
+                            		<span class="data">{{position}}</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="caps">
+                            		<span class="data">{{international_caps}}</span>
+                            		<span class="description">International Caps</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="international-goals">
+                            		<span class="data">{{goals}}</span>
+                            		<span class="description">International Goals</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="height">
+                            		<span class="data">{{height}}</span>
+                            		<span class="description">cm</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="first-international">
+                            		<span class="description">First international:</span>
+                            		<span class="data-1">{{first_international_appearance}}</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="birthdate">
+                            		<span class="description">Date of Birth:</span>
+                            		<span class="data-1">{{birth_date}}</span>
+                            	</li>
+                            	
+                            	<li id="player-stats-info" class="clubname">
+                            		<span class="description">Current Club:</span>
+                                	<span class="data-1">{{clubname}}</span>
+                            	</li>
+
+                        	</div>
+                        	
+                        	<div class="col-md-5">
+                            	<div>
+                                	<div class="box">
+                                    	<h2 class="media-heading-article">Player Biography:</h2>
+                                    	<div id="scrollbox3" class="media-body" style = "width:100%; height:100%;max-width:450px; max-height:360px; overflow:auto;">
+                                        	{{biography}}
+                                    	</div>
+                                	</div>
+                            	</div>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+            </div>
+    	</section>
+
+    	<!-- player country -->
+    	<section id="player-country" class="container content-section text-center">
+        	<div class = "row">
+            	<div class="header-wrap ">
+                	<div class="title-wrap">
+                    	<h2 class="title">
+                        	<center>
+                            	<span>
+                            		<a class="logo">
+                                    	<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="{{country.team_logo_url}}">
+                                	</a>
+                            	</span>
+                        	</center>
+                        	<span>National Team</span>
+                    	</h2>
+                	</div>
+            	</div>
+        	</div>
+        	
+        	<div class="row">
+            	<div class="col-m-5" style="color:black;">
+                	<a href="">
+	                	<span class="country-flag">
+	                		<center>
+	                			<img width="150" height="100" src="{{ country.flag }}" class="img-responsive imageClip thumbnail" alt="Responsive image">
+	                		</center>
+	                	</span>
+                	</a>
+            	</div>
+        	</div>
+    	</section>
+
+	    <!-- media Section -->
+	    <section id="player-media" class="content-section text-center">
+	        <div class="player-media-section">
+	            <div class="row-sm-3">
+	                <div class="col-sm-3-center">
+	                    <a class="twitter-timeline" href="https://twitter.com/{{twitter_name}}" data-widget-id="486875096263307264" data-screen-name="{{twitter_name}}">Tweets by @{{twitter_name}}</a>
+	                    <script>
+	                        !function(d,s,id)
+	                        {
+	                        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+	                        if(!d.getElementById(id)){js=d.createElement(s);
+	                            js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}
+	                        (document,"script","twitter-wjs");
+	                    </script>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+
+	    <section id="player-match" class="content-section text-center" style="padding-bottom: 250px;">
+	        <div class="player-match-section" style = "color:black;"> 
+	            <div class = "row">
+	                <div class="header-wrap ">
+	                    <div class="title-wrap">
+	                        <h2  class="brand-heading" style = "background: rgba(244, 197, 197, 0.11);color:#7e7e7e;" >
+	                            <span>Matches</span>
+	                        </h2>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-4" id="panel1" style="float:none; margin: 0 auto;">
+	                <table style="border-color:whitesmoke">
+	                {% for m in ma %}
+                        <tr>
+                            <td>
+                                <img width="150" height="75" src="{{ m.country_A.symbol_flag }}" alt="Responsive image">
+                            </td>
+                            <td>
+                                <h4>
+                                	<font size = "5">
+                                		<a class="white" href="/matches/{{m.match_num}}"> vs </a>
+                                	</font>
+                                </h4>
+                            </td>
+                            <td>
+                                <img width="150" height="75" src="{{ m.country_B.symbol_flag }}" alt="Responsive image">
+                            </td>
+                        </tr>
+	                {% endfor %}
+	                {% for m in mb %}
+                        <tr >
+                            <td>
+                                <img width="150" height="75" src="{{ m.country_A.symbol_flag}}" alt="Responsive image">
+                            </td>
+                            <td>
+                                <h4>
+                                	<font size = "5">
+                                		<a class="white" href="/matches/{{m.match_num}}"> vs </a>
+                                	</font>
+                                </h4>
+                            </td>
+                            <td>
+                                <img width="150" height="75" src="{{ m.country_B.symbol_flag}}" alt="Responsive image">
+                            </td>
+                        </tr>
+	                {% endfor %}
+	                </table>
+	            </div>
+	        </div>
+	    </section>
+
+	    <!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	    
+	    <!-- Plugin JavaScript -->
+	    <script src="/static/js/player/jquery.easing.min.js"></script>
+
+	    <!-- Custom Theme JavaScript -->
+	    <script src="/static/js/player/grayscale.js"></script>
+
+	    <script src="/static/js/player/enscroll-0.6.1.min.js"></script>
+	    <script type="text/javascript">
+    		$(document).ready(function(){
+            	$('#scrollbox3').enscroll({
+                	showOnHover: false,
+                	verticalTrackClass: 'track3',
+                	verticalHandleClass: 'handle3'
+            	});
+    		});
+    	</script>
+	</body>
+
+</html>

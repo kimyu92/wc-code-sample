@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{country}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- core bootstrap -->
+    <link rel="stylesheet" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/bootstrap.min.css">
+    <!-- necessary for tooltips -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/js/test.js"></script>
+
+    <!-- necessary for circular roster -->
+    <link type='text/css' title='standard' rel='stylesheet'  href='https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/fifa_football_data.css'> </link>
+    <!-- Custom CSS -->
+    <link href="https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/grayscale.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+    .embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    /*padding-top: 30px;  IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+    max-width: 60%;
+    max-height: 50%
+    }
+    .embed-container iframe,
+    .embed-container object,
+    .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    }
+
+    </style>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+ <!-- Navigation -->
+    {% include 'sidebar_country.html' %}
+
+
+     <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <!-- <center><img width="150" height="100" src="{{ flagurl }}" class="img-responsive imageClip thumbnail" alt="Responsive image"></center> -->
+
+                        <h1 class="brand-heading" style = "background: rgba(244, 197, 197, 0.11);">{{country}}</h1>
+                        <!-- <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p> -->
+                        <a href="#roster" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- roster Section -->
+    <section id="roster" class="container content-section text-center">
+        <div class="row">
+            <div class="container">
+                <div class="team-players-list">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div id="players" data-title="2014 FIFA World Cup™ - Players">
+                                <div class="module">
+                                    <div class="inner loaded" style="min-height:367px;height:auto !important;height: 367px;" >
+                                        <div class="p-list">
+                                        {% for x, y in wow_urls %}
+                                            <div class="p p-i p-i-prt-1" data-player-id="356166" data-player-role="g">
+                                                <div class="p-i">
+                                                    <!-- tooltip added -->
+                                                    <div class="picture-wrap" data-toggle="tooltip" data-placement="bottom" title="
+                                                    #{{x.shirt_number}}, {{x.position}}, Club: {{x.clubname}}">
+                                                        <a href="/players/{{ y }}">
+                                                            <img class="player" src="{{x.player_image}}" data-src="{{x.player_image}}">
+                                                        </a>
+                                                    </div>
+                                                      <!-- tooltip.js -->
+                                                    <script>
+                                                        $('.picture-wrap').tooltip({
+                                                            trigger: 'hover'
+                                                        })
+                                                    </script>
+                                                    <!-- css for tooltip -->
+                                                    <style type="text/css">
+                                                        .tooltip.bottom .tooltip-inner {
+                                                            background-color: #0087e6;
+                                                        }
+                                                        .tooltip.bottom .tooltip-arrow {
+                                                            border-bottom-color: #0087e6;
+                                                        }  
+                                                    </style>
+                                                </div>
+                                                <!-- <div class="p-n"> -->
+                                                    <a id="name-p"href="/players/{{ y }}"><span class="p-n-webname" style="line-height:12; color:#7E7E7E;">{{ x.full_name }}</span></a>
+                                                    <!-- <span class="p-i-fieldpos">{{ x.position }}</span><span class="p-i-clubname">{{ x.country.country_name }}</span> -->
+                                                <!-- </div> -->
+                                            </div>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </section>
+
+    <style type="text/css">
+        #roster{
+            background: url(https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/grad_bg.png) no-repeat;
+            width: 100%;
+        }
+    </style>
+
+    <!-- Video Section -->
+    <section id="country-media" class="content-section text-center">
+        <div class="country-media-section">
+            <div class="container">
+            <div class="row-fluid">
+                <div class="col-lg-12">
+                    <center>
+                        <div class="embed-container">
+                            <!-- style="top: 150px;width: 560px;height: 315px;position: inherit;" -->
+                            <iframe src="{{team_video_url}}?autoplay=0&amp;showinfo=0&amp;modestbranding=1&amp;theme=light&amp;iv_load_policy=3&amp;rel=0&amp;wmode=transparent"frameborder=0></iframe>
+                            <!-- <iframe width="560" height="315" src="{{team_video_url}}?autoplay=0&amp;showinfo=0&amp;modestbranding=1&amp;theme=light&amp;iv_load_policy=3&amp;rel=0&amp;wmode=transparent" frameborder="0" allowfullscreen></iframe> -->
+                        </div>
+                    </center>
+                <center>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+<style type="text/css">
+    
+    @media (min-width:200px) {
+        /* rules for mobile horizontal (320 > 480)  */
+        .mycontent-left{
+            font-size:40px;
+        }
+        .blah-text{
+            font-size:80%;
+        }
+        table{
+            width: 15%;
+        }
+    }
+
+    @media (min-width:320px) {
+        /* rules for mobile horizontal (320 > 480)  */
+        .mycontent-left{
+            font-size:40px;
+        }
+        .blah-text{
+            font-size:80%;
+        }
+        table{
+            width: 15%;
+        }
+    }
+
+    @media (min-width:480px) {
+        /* rules for mobile horizontal (480 > 768)  */
+        .mycontent-left{
+            font-size:50px;
+        }
+        .blah-text{
+            font-size:80%;
+        }
+        table{
+            width: 15%;
+        }
+    }
+    @media (min-width: 768px) {
+       /* rules for tablet (768 > 992) */
+        .mycontent-left{
+            font-size:75px;
+        }
+        .blah-text{
+            font-size:100%;
+        }
+        table{
+            width: 30%;
+            padding-left: 20px;
+        }
+
+    }
+    @media (min-width: 992px) {
+       /* rules for desktop (992 > 1200) */
+        .mycontent-left{
+            font-size:100px;
+        }
+        .blah-text{
+            font-size:100%;
+        }
+        table {
+            width: 50%;
+            padding-left: 40px;
+        }
+    }
+    @media (min-width: 1200px) {
+       /* rules for large (> 1200) */
+        .mycontent-left{
+            font-size:100px;
+        }
+        .blah-text{
+            font-size:100%;
+        }
+        table {
+            width: 100%;
+            padding-left: 45px;
+        }
+        
+    }
+
+
+</style>
+
+    <!-- Map Section -->
+    <section id="country-profile" class="container content-section text-center">
+
+        <div class="row" style="float:center; padding-bottom:15px;">
+            <center>
+                <a class="logo">
+                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="{{team_logo_url}}">
+                </a>
+            </center>
+        </div>
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                <h2 class = "stats-header">Statistics:</h2>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                      <li class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+                      <li class=""><a href="#Attacking" role="tab" data-toggle="tab">Attacking</a></li>
+                      <li class=""><a href="#Defending" role="tab" data-toggle="tab">Defending</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                      <div class="table-responsive tab-pane fade active in" id="general">
+                        <table class="table bordered team-gen-stats">
+                            <tbody>
+                                <tr>
+                                    <th class= "blah-text" style="padding:13px;">Matches Played</th>
+                                    <th class= "blah-text" style="padding:13px;">Goals Scored</th>
+                                    <th class= "blah-text" style="padding:13px;">Attempts on Target</th>
+                                    <th class= "blah-text" style="padding:13px;">Distance Covered (km)</th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td class = "mycontent-left" style="padding:13px;">{{matches_played}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{goals_scored}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{attempts_on_target}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{distance_covered}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                      <div class="tab-pane fade" id="Attacking">
+                        <table class="table bordered team-attacking-stats">
+                            <tbody>
+                                <tr>
+                                    <th class= "blah-text" style="padding:13px;">Goal per Min</th>
+                                    <th class= "blah-text" style="padding:13px;">Goal per Attempt</th>
+                                    <th class= "blah-text" style="padding:13px;">Total Goals</th>
+                                    <th class= "blah-text" style="padding:13px;">Total Attempts</th>
+                                </tr>
+                                <tr>
+                                    <td class = "mycontent-left" style="padding:13px;">{{one_g_freq_min}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{one_g_freq_attempts}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{scoring_method_total}}</td>
+                                    <td class = "mycontent-left" style="padding:13px;">{{att_attempts}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div class="tab-pane fade" id="Defending">
+                        <table class="table bordered team-attacking-stats">
+                            <tbody>
+                                <tr>
+                                    <th class= "blah-text" style="padding:13px;">Tackles</th>
+                                    <th class= "blah-text" style="padding:13px;">Saves</th>
+                                    <th class= "blah-text" style="padding:13px;">Blocks</th>
+                                    <th class= "blah-text" style="padding:13px;">Total</th>
+                                </tr>
+                                <tr>
+                                    <td id="7000027" class="num matches_played mycontent-left" style="padding:13px;">{{def_tackles}}</td>
+                                    <td id="7000027" class="num matches_played mycontent-left" style="padding:13px;">{{def_saves}}</td>
+                                    <td id="7000027" class="num matches_played mycontent-left" style="padding:13px;">{{def_blocks}}</td>
+                                    <td id="7000027" class="num matches_played mycontent-left" style="padding:13px;">{{def_total_defense}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $('#myTab a').click(function (e) {
+                      e.preventDefault()
+                      $(this).tab('show')
+                    })
+                </script>
+                <style type="text/css">
+                    /*.mycontent-left {
+                        border-right: 2px solid #bbb;
+                    }*/
+                </style>
+            </div>
+
+            <div class="col-sm-5" style="padding-left: 100px;">
+                <div class="box">
+                    <h2 class="media-heading-article">Country Biography:</h2>
+                    <div id = "scrollbox3" class="media-body" style = " height:100%; max-width:500px; max-height:360px; overflow:auto;">
+                        {{article}}
+                    </div>
+                </div>
+            </div>
+
+            <style type="text/css">
+                .media-heading-article{
+                    margin: 0 0 15px;
+                    color: #bbb !important;
+                    font-size: 20px;
+                    text-align: left;
+                }
+                .media-body{
+                    color: #000 !important;
+                    text-align: left;
+                }
+                .stats-header{
+                    color: #bbb !important;
+                    font-size: 20px;
+                    text-align: left;
+                }
+                .col-lg-6{
+                    color: #000 !important;
+                    text-align: left;
+                }
+            </style>
+        </div>
+    </section>
+    <section id="country-match" class="content-section text-center" style="padding-bottom: 250px;">
+        <div class="country-match-section" style = "color:black;"> 
+            <div class = "row">
+                <div class="header-wrap ">
+                    <div class="title-wrap">
+                        <h2  class="brand-heading" style = "background: rgba(244, 197, 197, 0.11);color:#7e7e7e;" >
+                            <span>Matches</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>   
+            <div class="col-md-4" id="panel1" style="float:none; margin:0 auto;">
+                <table  style="border-color:whitesmoke">
+                    {% for l, m in ma %}
+                            <tr >
+                                <td>
+                                    <img width="150" height="75" src="{{ m.country_A.symbol_flag }}"  alt="Responsive image">
+                                </td>
+                                <td>
+                                    <h4>
+                                        <font size = "5">
+                                        <a class="white" href="/matches/{{m.match_num}}"> vs </a>
+                                        </font>
+                                    </h4>
+                                </td>
+                                <td>
+                                    <img width="150" height="75" src="{{ m.country_B.symbol_flag }}"  alt="Responsive image">
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    {% for l, m in mb %}
+                            <tr >
+                                <td>
+                                    <img width="150" height="75" src="{{ m.country_A.symbol_flag }}" alt="Responsive image">
+                                </td>
+                                <td>
+                                    <h4>
+                                        <font size = "5">
+                                            <a class="white" href="/matches/{{m.match_num}}"> vs </a>
+                                        </font>
+                                    </h4>
+                                </td>
+                                <td>
+                                    <img width="150" height="75" src="{{ m.country_B.symbol_flag }}" alt="Responsive image">
+                                </td>
+                            </tr>
+                    {% endfor %}
+                </table>
+            </div>   
+        </div>
+    </section>
+
+    <style type="text/css">
+        #country-profile{
+            padding-bottom: 270px;
+        }
+        .iframe-rwd  {
+            position: relative;
+            padding-bottom: 65.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        .iframe-rwd iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 60%;
+        }
+    </style>
+
+    <style type="text/css">
+        #country-profile{
+            background: url(https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/unused_pics/grad_final.png) no-repeat;
+            width: 100%;
+        }
+        #country-match{
+            background: url(https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/unused_pics/grad_final.png) no-repeat;
+            width: 100%;
+        }
+    </style>
+
+
+     <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/country_page/js/grayscale.js"></script>
+</body>
+
+</html>

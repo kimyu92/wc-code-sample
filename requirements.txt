@@ -1,0 +1,27 @@
+# pip install -r requirements.txt --allow-all-external
+
+# Django
+Django==1.8.7
+django-extensions==1.5.9
+
+# interactive python shell
+ipython==4.0.1
+
+# Templating engine
+pyjade==3.1.0
+
+# Template debug on rendering
+django-template-debug==0.3.4
+
+# DB Connector
+psycopg2==2.6.1
+
+# Full-text multi-table search application for Django
+# repo: https://github.com/etianen/django-watson
+django-watson==1.2.0
+
+# Rest API
+django-tastypie==0.12.2
+
+# server
+gunicorn==19.4.1

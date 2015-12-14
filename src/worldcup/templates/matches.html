@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- "\f0ac" countries one -->
+<!-- saved from url=(0053)http://tympanus.net/Tutorials/GoogleNexusWebsiteMenu/ -->
+<html lang="en" class=" js no-touch">
+
+
+	<head>
+		<title>World Cup - Matches</title>
+		<!-- calender stuff -->
+		<link rel="stylesheet" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/calender.css">
+		<link rel="stylesheet" media="all" href="https://5b235f2d806e1cc3b681b15359368215e68ee611.googledrive.com/host/0B1WDwjXB6KSvbEQzc3NweTVWTDA/match_background.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.js" type="text/javascript" charset="utf-8" async defer></script>
+
+
+<style type="text/css">  
+a.nounderline:link  
+{  
+ text-decoration:none;  
+}  
+div#myTable{
+	height: 15%;
+	width:60%;
+}
+div#info{
+
+}
+img#flags{
+	
+	max-width: 30%;
+}
+</style> 
+
+<style>
+/* unvisited link */
+a:link {
+    color: #328DE0;
+}
+
+/* visited link */
+a:visited {
+    color: #528F52;
+}
+
+/* mouse over link */
+a:hover {
+    color: #858585;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+</style>
+<link rel="stylesheet" media="all" href="https://5b235f2d806e1cc3b681b15359368215e68ee611.googledrive.com/host/0B1WDwjXB6KSvbEQzc3NweTVWTDA/match_background.css"/>
+
+
+	</head>
+	{% include 'sidebar.html' %}
+	<body>
+<!-- 		<video id = "bgvideo" muted autoplay>
+			<source src="https://dl.dropboxusercontent.com/u/90200787/Germany_vs_Brazil.mp4">
+		</video> -->
+
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="container">
+			<div>	
+			  	<center>
+					<div id="myTable" >
+						<ul class="event-list"> 
+							{% for match in matches %}
+					        	<li id="match_{{match.match_num}}">
+									<img alt="Independence Day" src="{{match.merge_flag}}" id="flags" />
+									<div class="info" id ="info">
+										<h4 class="title" id="title">
+											<a href="/matches/{{match.match_num}}" class="nounderline">
+												{{match.country_A}} vs {{match.country_B}}
+											</a>
+										</h4>
+										<p class="desc" id="score">Score: {{match.score}}</p>
+										<p class="desc" id= "winner">Winner: {{match.winner}}</p>
+										<p class="desc" id="location">Location: {{match.location}}</p>
+									</div>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+			    </center> 
+			</div>
+		</div>
+	</body>
+</html>

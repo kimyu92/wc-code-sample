@@ -1,0 +1,8 @@
+# http://linuxconfig.org/setting-up-django-python-and-mysql-development-environment-on-debian-linux-8-jessie
+# easiest way to configure python3 priority over python2 in order to run
+#
+# 1. run uncommented line first
+# 2. sudo update-alternatives --config python
+# 3. sudo apt-get install python3-django
+# 4. django-admin startproject worldcup
+# Test: python -c "import django; print(django.get_version())"

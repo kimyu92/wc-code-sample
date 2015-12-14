@@ -1,0 +1,12 @@
+# basic python stuff
+*.egg-info
+*.pot
+*.py[co]
+__pycache__
+MANIFEST
+
+# mac osx
+**/.DS_Store
+
+# python3 env
+my-env

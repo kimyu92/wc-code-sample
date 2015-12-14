@@ -1,0 +1,28 @@
+/* page */
+html {
+	background:url("../../img/players/players_background.jpg") no-repeat center center fixed !important;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}
+
+/* table */
+#players-table {
+	background-color: rgba(249,249,249,0.8);
+}
+
+#players-table thead {
+	background: #006a72;
+	color: white;
+}
+
+#players-table_length label {
+	color: #f9f9f9;
+}
+
+
+/* footer */
+cite, cite a {
+	color: gray;
+}

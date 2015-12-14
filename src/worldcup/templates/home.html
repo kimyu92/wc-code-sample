@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FIFA World Cup 2014 Brazil">
+    <meta name="author" content="Kim Yu Ng">
+    <link rel="icon" href="img/home/soccer-favicon.ico">
+
+    <title>World Cup 2014 - Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/home/style.css" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/home/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      #alertRandom {
+          width: 100%;
+          opacity: .7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="h">
+      <div id="h-vid">
+        <video id="bgvid" autoplay loop poster="/static/img/home/header.jpg">
+          <div class="logo">WORLDCUP . #GGWP</div>
+          <source src="/static/video/home/part{{lucky_num_key.0}}.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class='h-content'>
+        <div class="h-logo">WORLDCUP . #GGWP</div>
+        
+        <div class="h-social hidden-xs">
+          
+          <a href="https://twitter.com/FIFAWorldCup" target="_blank"><i class="ion-social-twitter"></i></a>
+          <a href="https://www.instagram.com/fifaworldcup/" target="_blank"><i class="ion-social-instagram"></i></a>
+          <a href="https://www.facebook.com/fifaworldcup" target="_blank"><i class="ion-social-facebook"></i></a>
+          <button id="bgvid-btn">Pause</button>
+          <div id="alertRandom" class="alert alert-success">
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
+              <strong>Credit:</strong>Fifa TV You are watching the no. {{lucky_num_key.0}} top goal of world cup 2014.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container ptb">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>All the stories you want, you'll got it here.</h2>
+          <p class="mt"><i class="fa fa-quote-left fa-2x fa-pull-left fa-border"></i>The 2014 FIFA World Cup was the 20th FIFA World Cup, the quadrennial world championship for men's national football teams organized by FIFA. It took place in Brazil from 12 June to 13 July 2014, after the country was awarded the hosting rights in 2007. It was the second time that Brazil staged the competition (the first was in 1950), and the fifth time that it was held in South America ...</p>
+          <p class="store">
+            <a href="https://en.wikipedia.org/wiki/2014_FIFA_World_Cup" target="_blank"><i class="fa fa-wikipedia-w fa-2x"></i></a>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="/static/img/home/football.png" class="img-responsive mt" alt="">
+        </div>
+      </div><!--/row-->
+    </div><!--/container-->
+
+    <div id="sep">
+      <div class="container">
+        <div class="row centered">
+          <div class="col-md-8 col-md-offset-2">
+            <h1>Share excitement with soccer fans like you who care about football.</h1>
+            <h4>I know you still doubt about whether this is what you have been looking for.<br/> No worries. Lets begin from here</h4>
+            <p><button class="btn btn-conf-2 btn-green">Scroll down</button></p>
+          </div><!--/col-md-8-->
+        </div>
+      </div>
+    </div><!--/sep-->
+
+    <div class="container ptb">
+      <div class="row centered">
+        <h2 class="mb">Our Site Content<br/>It's Quite Easy To Navigate.</h2>
+        <div class="col-md-4">
+          <div class="price-table">
+              <div class="p-head">
+                Country
+              </div>
+              <div class="p-body">
+                <ul class="features">
+                  <li>32 Countries</li>
+                  <li>Statistics</li>
+                  <li>Biography</li>
+                </ul>
+                <div class="price">
+                  <span class="sub">$</span>
+                  <span class="detail">0</span>
+                  <span class="sub">/yr.</span>
+                </div><!--/price-->
+                <a href="/countries" class="btn btn-conf-2 btn-green" role="button">Learn Now</a>
+              </div><!--/p-body-->
+          </div><!--/price-table-->
+        </div><!--/col-md-4-->
+
+         <div class="col-md-4">
+          <div class="price-table">
+              <div class="p-head">
+                Player
+              </div>
+              <div class="p-body">
+                <ul class="features">
+                  <li>736 Players</li>
+                  <li>Twitter Acc</li>
+                  <li>Biography</li>
+                </ul>
+                <div class="price">
+                  <span class="sub">$</span>
+                  <span class="detail">0</span>
+                  <span class="sub">/yr.</span>
+                </div><!--/price-->
+                <a href="/players" class="btn btn-conf-2 btn-green" role="button">Learn Now</a>
+              </div><!--/p-body-->
+          </div><!--/price-table-->
+        </div><!--/col-md-4-->
+
+         <div class="col-md-4">
+          <div class="price-table">
+              <div class="p-head">
+                Match
+              </div>
+              <div class="p-body">
+                <ul class="features">
+                  <li>64 Matches</li>
+                  <li>Score and location</li>
+                  <li>Video</li>
+                </ul>
+                <div class="price">
+                  <span class="sub">$</span>
+                  <span class="detail">0</span>
+                  <span class="sub">/yr.</span>
+                </div><!--/price-->
+                <a href="/matches" class="btn btn-conf-2 btn-green" role="button">Learn Now</a>
+              </div><!--/p-body-->
+          </div><!--/price-table-->
+        </div><!--/col-md-4-->
+      </div><!--/row-->
+    </div><!--/container-->
+
+    <div id="g">
+      <div class="container">
+        <div class="row sponsor centered">
+          <div class="col-sm-2 col-sm-offset-1">
+            <img src="/static/img/home/sponsor/stack1.png" alt="python">
+          </div>
+          <div class="col-sm-2">
+            <img src="/static/img/home/sponsor/stack2.png" alt="django">
+          </div>
+          <div class="col-sm-2">
+            <img src="/static/img/home/sponsor/stack3.png" alt="bootstrap">
+          </div>
+          <div class="col-sm-2">
+            <img src="/static/img/home/sponsor/stack4.png" alt="jquery">
+          </div>
+          <div class="col-sm-2">
+            <img src="/static/img/home/sponsor/stack5.png" alt="github">
+          </div>
+        </div><!--/row-->
+      </div>
+    </div><!--/g-->
+
+    <div id="green">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 centered">
+            <h2>Past Famous Quotes</h2>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <h3>Winning isn't everything. There should be no conceit in victory and no despair in defeat</h3>
+                  <h5><tgr>SIR MATT BUSBY</tgr></h5>
+                </div>
+                <div class="item">
+                  <h3>I won't say we have to win. I won't put that pressure. But we can't lose</h3>
+                  <h5><tgr>JOSE MOURINHO</tgr></h5>
+                </div>
+                <div class="item">
+                  <h3>I made the best save of the tournament 'The Hand of God' now belongs to me</h3>
+                  <h5><tgr>Luis Suarez</tgr></h5>
+                </div>
+              </div>
+            </div><!--/Carousel-->
+
+          </div>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/green-->
+
+    <div id="f">
+      <div class="container">
+        <div class="row centered">
+          <h2>You Can Contact Me</h2>
+          <h5>kimyu.ng(at)outlook(dot)com</h5>
+
+          <p class="mt">
+            <a href="https://twitter.com/kimyu92" target="_blank"><i class="ion-social-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/kim-yu-ng-26130a5b" target="_blank"><i class="ion-social-linkedin"></i></a>
+            <a href="https://github.com/kimyu92" target="_blank"><i class="ion-social-github"></i></a>
+          </p>
+          <h6 class="mt">COPYRIGHT 2015 - F.C. Team Possible</h6>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/F-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/home/video-pause.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/static/js/home/retina-1.3.0.js"></script>
+  </body>
+</html>

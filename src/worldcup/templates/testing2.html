@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynatable.js - jQuery plugin for HTML5+JSON interactive tables and more</title>
+    <meta name="description" content="Dynatable is a funner, semantic, interactive table plugin using jQuery, HTML5, and JSON. And it's not just for tables.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta property="og:url" content="http://www.dynatable.com" />
+    <meta property="og:title" content="Dynatable.js - jQuery plugin for HTML5+JSON interactive tables and more" />
+    <meta property="og:image" content="https://s3.amazonaws.com/dynatable-docs-assets/images/dynatable-with-name.png" />
+    <meta property="og:description" content="Dynatable is a funner, semantic, interactive table plugin using jQuery, HTML5, and JSON. And it's not just for tables." />
+
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/reset.css" />
+    <link rel="stylesheet" media="all" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/application.css" />
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/project.css" />
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/pygments.css" />
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/share.css" />
+    <link href='//fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/dynatable-docs.css" />
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery-1.9.1.min.js'></script>
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery.scrollTo.js'></script>
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery.toc.min.js'></script>
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery.sharrre-1.2.0.min.js'></script>
+
+
+    <!-- resources for project demos //-->
+    
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/jquery.dynatable.css" />
+    
+    
+    <script type='text/javascript' src='https://googledrive.com/host/0B3SI5iw0AIV0RUZvOFpsU3M1Rlk/jquery_players.dynatable.js'></script>
+    
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/highcharts.js'></script>
+    
+    {% include 'sidebar.html' %}
+
+    <script>
+      $.dynatableSetup({features: {pushState: false}});
+
+      function getRandomInt (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      var $toc,
+          $menuToggle,
+          $tagbar,
+          $content,
+          $downloadBar,
+          tocWidth,
+          tocTop,
+          tagbarHeight,
+          tagbarTop,
+          contentTop,
+          downloadBarTop,
+          scrollRatio,
+          lastAnchor,
+          windowLoaded;
+
+      $(document).ready( function() {
+        $toc = $('#toc-container');
+        $menuToggle = $('#menu-toggle');
+        $tagbar = $('#tagbar');
+        $content = $('#content');
+        $downloadBar = $('#download-and-share-container');
+        tocWidth = $toc.outerWidth();
+        tocTop = $toc.offset().top;
+
+        $('#toc').toc({
+          selectors: '#post > h2, #post > h3, #footer > h2',
+          anchorName: function(i, heading, prefix) {
+            return $(heading).text().replace(/^\s+|\s+$/g, "").replace(/\s+/g, "-").replace(/([A-Z])/g, function($1){return $1.toLowerCase();});
+          },
+          onHighlight: function($highlighted) {
+            var anchor = $highlighted.find('a').attr('href');
+            if (anchor !== lastAnchor) {
+              lastAnchor = anchor;
+              ga('send', 'event', 'navigation', 'scroll', anchor);
+            }
+          }
+        });
+      })
+        .delegate('#plugin-graphic', 'click', function() {
+          $('#splashbar .mountain').remove();
+          loadMountains();
+        })
+        .delegate('#menu-toggle', 'click', function(e) {
+          e.preventDefault();
+          if ($toc.is(':visible')) {
+            hideMenu();
+          } else {
+            showMenu();
+          }
+        })
+        .delegate('#toc a', 'click', function(e) {
+          if ($(window).width() <= 850) {
+            hideMenu();
+          }
+        });
+
+      function hideMenu() {
+        $toc.animate({'left': -tocWidth}, {duration: 250, complete: function() {
+          $toc.hide();
+        }});
+        $menuToggle.animate({'left': 0}, {duration: 250});
+      }
+      function showMenu() {
+        // Must set offset to -tocWidth + 'px' string, otherwise, jquery will subtract it from whatever the current
+        // offset is, instead of setting it absolutely.
+        $toc.offset({'left': -tocWidth + 'px'}).show().animate({'left': 0}, {easing: 'swing', queue: false, duration: 250});
+        $menuToggle.animate({'left': tocWidth}, {easing: 'swing', queue: false, duration: 250});
+      }
+
+      function loadMountains() {
+        var mountains = [],
+            $splash = $('#splashbar'),
+            splashWidth = $splash.width() - 100,
+            splashHeight = $splash.height(),
+            spacing = parseFloat(splashWidth)/7;
+        for (var i=0; i < 7; i++) {
+          var dim = getRandomInt(200, 500),
+              pos = (i * spacing) + getRandomInt(-100,100),
+              bottom = splashHeight - dim/4; 
+          mountains.push('<i class="mountain" style="display: none; left: ' + pos + 'px; width: ' + dim + 'px; height: ' + dim + 'px; top: ' + bottom + 'px;"></i>');
+        }
+        $splash.append(mountains.join('')).find('.mountain').fadeIn();
+      }
+
+      $(window)
+        .scroll(function(e){
+          if (windowLoaded) {
+            var scrollTop = $(this).scrollTop();
+
+            // TOC sidebar animation and pinning
+            if (scrollTop > tocTop && $toc.css('position') != 'fixed'){
+              $toc.css({'position': 'fixed', 'top': '0px'});
+              $menuToggle.css({'position': 'fixed', 'top': '0px'});
+            }
+            if (scrollTop < contentTop && $toc.css('position') != 'absolute'){
+              $toc.css({'position': 'absolute', 'top': 'auto'});
+              $menuToggle.css({'position': 'absolute', 'top': 'auto'});
+            }
+            if ($(this).width() > 850) {
+              if (scrollTop > tagbarTop) {
+                var leftOffset = tocWidth - (scrollTop - tagbarTop) * scrollRatio;
+                if (scrollTop < (tagbarTop + tagbarHeight)) {
+                  $toc.offset({'left': -(leftOffset)});
+                } else if ($toc.offset().left < 0) {
+                  $toc.offset({'left': 0});
+                }
+              } else if (scrollTop < tagbarTop) {
+                $toc.offset({'left': -tocWidth});
+              }
+            }
+          }
+
+          // Download pinning
+          //if (scrollTop > downloadBarTop && $downloadBar.css('position') != 'fixed'){
+          //  $downloadBar.css({'position': 'fixed', 'top': '0px'});
+          //}
+          //if (scrollTop < downloadBarTop && $downloadBar.css('position') != 'static'){
+          //  $downloadBar.css({'position': 'static', 'top': 'auto'});
+          //}
+        })
+        .load(function() {
+          tagbarHeight = $tagbar.outerHeight();
+          tagbarTop = $tagbar.offset().top;
+          contentTop = $content.offset().top;
+          //downloadBarTop = $downloadBar.offset().top;
+          scrollRatio = tocWidth / tagbarHeight;
+          windowLoaded = true;
+
+          loadMountains();
+        })
+        .resize(function() {
+          tocWidth = $toc.outerWidth();
+          tocTop = $toc.offset().top;
+          tagbarHeight = $tagbar.outerHeight();
+          tagbarTop = $tagbar.offset().top;
+          contentTop = $content.offset().top;
+          //downloadBarTop = $downloadBar.offset().top;
+          scrollRatio = tocWidth / tagbarHeight;
+
+          if ($(this).width() > 850) {
+            if (!$toc.is(':visible')) {
+              $toc.show().css({'left': 0});
+            }
+          } else {
+            if ($toc.is(':visible')) {
+              $toc.hide();
+              $menuToggle.css({'left': 0});
+            }
+          }
+        });
+    </script>
+    <script type='text/javascript'>
+  var domain = location,
+      url = location.host == 'os.alfajango.com' || location.host ==
+        'www.dynatable.com' ? '//s3.amazonaws.com/s3.alfajango.com/os-projects-downloads.json' : '/output.json',
+      ready = new $.Deferred,
+      resultJSON,
+      setJSON = function(data) {
+        resultJSON = data;
+      },
+      requestJSON = $.ajax(url, {dataType: 'jsonp', jsonp: false, jsonpCallback: 'setJSON'});
+
+  function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+  }
+
+  $.when(requestJSON, ready).then(function() {
+    $.each( ['rubygems', 'github', 'jspkg'], function(i, service) {
+      $('[data-' + service + ']').each( function() {
+        var $this = $(this),
+            project = $this.data(service),
+            number, label;
+
+        switch (service) {
+          case 'rubygems':
+            number = 'total_downloads';
+            label = 'downloads';
+            break;
+          case 'github':
+            number = 'watchers';
+            label = 'watchers';
+            break;
+          case 'jspkg':
+            number = 'total_downloads';
+            label = 'downloads';
+        };
+
+        if (this.id === "download-count") {
+          $this.html(addCommas(resultJSON[project][service][number]) + ' <span>' + label + '</span>');
+        } else {
+          $this
+            .tooltip({
+              title: addCommas(resultJSON[project][service][number]) + ' ' + label,
+              placement: 'left',
+              trigger: 'manual'
+            })
+            .tooltip('show');
+        }
+      });
+    });
+
+  });
+
+  $(window).load( function() {
+    ready.resolve();
+  });
+</script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2467935-24', 'dynatable.com');
+  ga('send', 'pageview');
+
+</script>
+
+    <script type='text/javascript'>
+  $(document).ready( function() {
+    $('#shareme').sharrre({
+      share: {
+        twitter: true,
+        facebook: true,
+        linkedin: true,
+        googlePlus: true
+      },
+      urlCurl: '',
+      enableTracking: true,
+      buttons: {
+        twitter: {count: 'vertical', via: 'alfajango'},
+        facebook: {layout: 'box_count'},
+        linkedin: {counter: 'top'},
+        googlePlus: {size: 'tall'}
+      },
+      hover: function(api, options){
+        $(api.element).find('.buttons').show();
+      },
+      hide: function(api, options){
+        $(api.element).find('.buttons').hide();
+      },
+      render: function() {
+        var $count = $('#shareme .count'),
+            count = parseFloat($count.text());
+
+        if (count < 10) {
+          $count.hide();
+          $('#shareme .share').width('300');
+        }
+      }
+    });
+  });
+</script>
+
+    <script type='text/javascript'>
+  $(document).ready(function() {
+    $.getJSON('last_commit.json', function(data) {
+      var html = '<span class="latest-update">Latest Update on Github | </span>',
+          commitDate = new Date(data.commit.committer.date),
+          sha = data.sha.substr(0,6),
+          message = data.commit.message,
+          msgLen = message.length,
+          url = data.html_url,
+          date = commitDate.getDate(),
+          month = commitDate.getMonth(),
+          year = commitDate.getFullYear(),
+          months = ["Jan",
+                    "Feb",
+                    "Mar", 
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep", 
+                    "Oct",
+                    "Nov",
+                    "Dec"];
+
+      if (message.length > 24) {
+        message = message.substr(0,24) + '&hellip;';
+      } else {
+        message = message.substr(0,25);
+      }
+      html += '<a href="' + url + '">';
+      html += '<span class="latest-date">' + months[month] + ' ' + date + ', ' + year + '</span> ';
+      html += '<span class="latest-sha">Commit ' + sha + '</span> ';
+      html += '<span class="latest-message">' + message + '</span>';
+      html += '</a>';
+
+      $('#last-commit').html(html);
+    });
+  });
+</script>
+
+  </head>
+  <body>
+    <br /><br /><br /><br />
+
+<div class="container">
+<div class="dynatable-demo">
+
+<table id="example-table" class="table table-bordered">
+<thead>
+
+<tr>
+<th>Shirt</th>
+<th>Name</th>
+<th>Country</th>
+<th>Position</th>
+</tr>
+</thead>
+{% for x, y, z in wow_urls %}
+<tr>
+<td>{{x.shirt_number}}</td>
+<td align="left"><span class="flagicon"><!-- <img alt="" src="{{ x.symbol_flag }}" width="22" height="13" class="thumbborder" /> -->&#160;</span><a href="/players/{{ y }}" title={{x.full_name}}>{{x.full_name}}</a></td>
+<td><a href="/countries/{{ z }}" title={{x.country.country_name}}><img alt="" src="{{ x.country.symbol_flag }}" width="22" height="13" class="thumbborder" />&#160;</span>{{x.country.country_name}}</a></td>
+<td><title={{x.position}}>{{x.position}}</title></td>
+</tr>
+{% endfor %}
+
+</table>
+
+<cite>
+<i>
+This page is copyrighted by <a href ="/aboutus">F.C. Team Possible</a>
+</i>
+</cite>
+
+
+</div>
+
+
+<script type="text/javascript">
+  $('#example-table').dynatable({
+    features: {
+      pushState: true
+    },
+    readers: {
+      'rank': function(el, record) {
+        return Number(el.innerHTML) || 0;
+      }, 
+      'us-$': function(el, record) {
+        return Number(el.innerHTML.replace(/,/g, ''));
+      }
+    },
+    writers: {
+      'rank': function(record) {
+        return record['rank'] ? record['rank'].toString() : '-';
+      }, 
+      'us-$': function(record) {
+        return record['us-$'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+    }
+  });
+</script>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- "\f0ac" countries one -->
+<!-- saved from url=(0053)http://tympanus.net/Tutorials/GoogleNexusWebsiteMenu/ -->
+<html lang="en" class=" js no-touch">
+	<head>
+		<title>World Cup - Search</title>
+		<!-- calender stuff -->
+		<link rel="stylesheet" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/calender.css">
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/pagination/pagination.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/pagination/pagination_players.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <link href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/tabs.css" rel="stylesheet" /> -->
+		
+		<!-- <link href="http://codefeed.in.iis2103.shared-servers.com/tabs/styles/bootstrap.min.css" rel="stylesheet" /> -->
+		
+		<link href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/tab_responsive.css" rel="stylesheet" />
+		<link href="http://codefeed.in.iis2103.shared-servers.com/tabs/css/preview.min.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href="http://codefeed.in.iis2103.shared-servers.com/tabs/styles/font-awesome.min.css" rel="stylesheet" />
+
+
+		<link rel="stylesheet" media="all" href="https://e120c7a329d82deabb254b6d6abcaeb74cd6f833.googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/search_page/search_background.css" />
+	</head>
+
+	{% include 'sidebar.html' %}
+	{% load watson %}
+	<style type="text/css">
+	    a.white:link {color: #fff; text-decoration: underline; }
+	    a.white:active {color: #0000ff; text-decoration: underline; }
+	    a.white:visited {color: #fff; text-decoration: underline; }
+	    a.white:hover {color: #ff0000; text-decoration: none; }
+	</style>
+	<body>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="col-md-offset-4 col-md-4" style="padding:2% 0 0 0">
+	        <table class="table ">
+	          <thead>
+	            <tr>
+	              <th class="text-center" style="color:#000000;font-size:24px">{% block tableHeader %} Search Results{% endblock tableHeader %}</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	          	{% if results %}
+	                <tr>
+	                    <td style="color:#000000; font-size: 1.3em;">Your search for "{{ query }}" returned {{ length_results }} results.</td>
+	                </tr>
+		        	{% for result, snippet in results %}
+           
+	                    <tr>
+	                        <td style="border-top:none">
+
+	        			        <tr>
+	        			            <td class="list-td" style="border-top:none">
+	                                    <a class="white list-td-a" href="{{ result.url }}"> {{ result.url }} </a>
+	                                </td>
+	        			        </tr>
+	                            <tr>
+	                                <td style="color:#000000" class="list-td" style="border-top:none">{{ snippet|safe }}</td>
+	                            </tr>
+	                        </td>
+	                    </tr>
+	   
+				    {% endfor %}
+				{% else %}
+						<tr>
+				          <td class="text-center list-td" style="border-top:none">No Results</td>
+				    	</tr>
+				{% endif%}
+	          </tbody>
+	        </table>
+	    </div>
+	</body>
+
+</html>

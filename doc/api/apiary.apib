@@ -1,0 +1,173 @@
+FORMAT: 1A
+HOST: http://kimyu92.pythonanywhere.com
+
+# WWC
+Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+
+# Group Countries
+Notes related resources of the **WCC API**
+
+## Countries Collection [/api/countries/?offset={offset}&limit={limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... number `offset` of the Country to perform action with. Has example value.
+    + limit (required, number, `1`) ... number `limit` of the Country to perform action with. Has example value.
+
+
+
+### List first {limit} Countries starting from {offset}. Queries are bounded by the number of countries which is 32 [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "country_code": "USA",
+                "country_name": "USA",
+                "flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/flags/usa.png",
+                "id": 1,
+                "map_url": "https://www.google.com/maps/embed/v1/place?q=USA&key=AIzaSyDZQEI-0qREquMzHQf8Gl6Z2zYt_YBjrmQ",
+                "rank": 13,
+                "resource_uri": "/api/countries/USA/",
+                "symbol_flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/symbol_flags/usa.jpg"
+            },
+            {
+                "etc..."
+            }
+            
+        ]
+
+## Countries [/api/countries/{id}]
+A single Country object with all its details
+
++ Parameters
+    + id (required, string, `USA`) ... String `id` of the Country to perform action with. Has example value.
+
+### Retrieve a Country [GET]
++ Response 200 (application/json)
+
+             {
+                "country_code": "USA",
+                "country_name": "USA",
+                "flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/flags/usa.png",
+                "id": 1,
+                "map_url": "https://www.google.com/maps/embed/v1/place?q=USA&key=AIzaSyDZQEI-0qREquMzHQf8Gl6Z2zYt_YBjrmQ",
+                "rank": 13,
+                "resource_uri": "/api/countries/USA/",
+                "symbol_flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/symbol_flags/usa.jpg"
+            }
+
+
+# Group Players
+## Players Collection [/api/players/?offset={offset}&limit={limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... number `offset` of the Players to perform action with. Has example value.
+    + limit (required, number, `1`) ... number `limit` of the Players to perform action with. Has example value.
+
+
+
+### List first {limit} Players starting from {offset}. Queries are bounded by the number of players which is 736. [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "biography": "",
+                "birth_date": "1986-09-08",
+                "clubname": "AS Monaco",
+                "first_international_appearance": "",
+                "full_name": "Joao Moutinho",
+                "goals": 0,
+                "height": 0,
+                "id": 1,
+                "international_caps": 0,
+                "player_image": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/players/Portugal/Joao_MOUTINHO.png",
+                "position": "Midfielder",
+                "resource_uri": "/api/players/Joao%20Moutinho/",
+                "shirt_number": 8,
+                "sur_name": "Iria Santos Moutinho"
+            },
+            {
+                "etc..." : "more"
+            }
+        ]
+
+
+
+## Players [/api/players/{id}]
+A single Player object with all its details
+
++ Parameters
+    + id (required, string, `Joao Moutinho`) ... String `id` of the Country to perform action with. Has example value.
+
+### Retrieve a Player [GET]
++ Response 200 (application/json)
+
+
+        {
+            "biography": "",
+            "birth_date": "1986-09-08",
+            "clubname": "AS Monaco",
+            "first_international_appearance": "",
+            "full_name": "Joao Moutinho",
+            "goals": 0,
+            "height": 0,
+            "id": 1,
+            "international_caps": 0,
+            "player_image": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/players/Portugal/Joao_MOUTINHO.png",
+            "position": "Midfielder",
+            "resource_uri": "/api/players/Joao%20Moutinho/",
+            "shirt_number": 8,
+            "sur_name": "Iria Santos Moutinho"
+        }
+ 
+
+# Group Matches
+## Matches Collection [/api/matches/?offset={offset}&limit={limit}]
++ Parameters
+    + offset (required, number, `1`) ... number `offset` of the Matches to perform action with. Has example value.
+    + limit (required, number, `1`) ... number `limit` of the Matches to perform action with. Has example value.
+
+
+
+### List first {limit} Matches starting from {offset}. Queries are bounded by the number of matches which is 64 [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "highlight_url": "http://player.espn.com/player.js?pcode=B4a3E63GKeEtO92XK7NI067ak980&width=576&height=324&externalId=intl:1876413",
+                "location": "Arena de Sao Paulo",
+                "map_location": "https://www.google.com/maps/embed/v1/place?q=Arena de Sao Paulo+Brazil&key=AIzaSyDZQEI-0qREquMzHQf8Gl6Z2zYt_YBjrmQ",
+                "match_date": "2014-06-12",
+                "match_num": 1,
+                "merge_flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/match_symbol/bra_cro.jpg",
+                "resource_uri": "/api/matches/1/",
+                "score": "3-1",
+                "winner": "Brazil"
+            },
+            {
+                etc...
+            }
+        ]
+
+## Matches [/api/matches/{id}]
+A single Match object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Int `id` of the Country to perform action with. Has example value.
+
+### Retrieve a Match [GET]
++ Response 200 (application/json)
+
+        {
+            "highlight_url": "http://player.espn.com/player.js?pcode=B4a3E63GKeEtO92XK7NI067ak980&width=576&height=324&externalId=intl:1876413",
+            "location": "Arena de Sao Paulo",
+            "map_location": "https://www.google.com/maps/embed/v1/place?q=Arena de Sao Paulo+Brazil&key=AIzaSyDZQEI-0qREquMzHQf8Gl6Z2zYt_YBjrmQ",
+            "match_date": "2014-06-12",
+            "match_num": 1,
+            "merge_flag": "https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/match_symbol/bra_cro.jpg",
+            "resource_uri": "/api/matches/1/",
+            "score": "3-1",
+            "winner": "Brazil"
+        }
+
+

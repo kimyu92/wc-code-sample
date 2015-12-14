@@ -1,0 +1,164 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="description" content="The world cup 2014 Presented from Team Possible">
+  <meta name="keywords" content="world cup, 2014, soccer, software engineering">
+  <meta name="author" content="Team Possible">
+  <link rel="shortcut icon" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/favicon2.ico">
+  <link rel="stylesheet" type="text/css" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/normalize.css">
+  <link rel="stylesheet" type="text/css" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/match_page_css/demo.css">
+  <link rel="stylesheet" type="text/css" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/component.css">
+  <script type="text/javascript" async="" src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/ga.js"></script>
+  <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/modernizr.custom.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- The other nav bar css -->
+ <!-- <link rel="stylesheet" type="text/css" href="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/match_page_css/dropDownNavBar.css"> -->
+  <!-- // <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/pagination/pagination.js"></script> -->
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+  
+  <style type="text/css">
+#seal{
+  /*z-index: 9999;*/
+  /*width:100%!important;*/
+}
+
+
+
+  </style>
+  <style type="text/css"></style>
+  
+</head>
+<body>
+    <div class="container">
+      <ul id="gn-menu" class="gn-menu-main">
+        <li class="gn-trigger">
+          <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+          <nav class="gn-menu-wrapper">
+            <div class="gn-scroller">
+              <ul class="gn-menu">
+
+                <!-- this is also in home.html -->
+                
+                <li class="gn-search-item">
+                  <form action="/search" >
+                  <input placeholder="Search" type="search" name="q" class="gn-search" value="{{request.GET.q}}">
+                  </form>
+                  <a class="gn-icon gn-icon-search"></a>
+                  
+                </li>
+
+
+                
+                <li>
+                  <a class="gn-icon gn-icon-globe" href="/countries">Countries</a>
+                  <!-- <ul class="gn-submenu"> -->
+                    <li><a class="gn-icon gn-icon-players" href="/players">Players</a></li>
+                    <li><a class="gn-icon gn-icon-matches" href="/matches">Matches</a></li>
+                  <!-- </ul> -->
+                </li>
+                <li><a class="gn-icon fa-paper-plane" href="/tourguide">Tour Guide</a></li>
+                <li><a class="gn-icon gn-icon-aboutus" href="/aboutus">About us</a></li>
+              </ul>
+            </div><!-- /gn-scroller -->
+          </nav>
+        </li>
+
+        <li><a href="/"><span>Home</span></a></li>
+
+        <!-- Right side of the nav bar -->
+        <!-- <div location = "right"> -->
+ <!-- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation"> -->
+        <!-- <div class="container"> -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-sort-desc fa-2x"></i>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling  -->
+
+            <div id = "seal" class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul id = "seal" class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section  -->
+                    <li>
+                        <a class="page-scroll" href="#page-top"><span><center>Top</span></center></a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="#about"><span><center>Details</center></span></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download"><center>Highlights</center></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#location"><center>Location</center></a>
+                    </li>
+                </ul>
+            </div>
+
+             <!-- /.navbar-collapse  -->
+        <!-- </div> -->
+        <!-- .container  -->
+     <!-- </nav>  -->
+
+        <!-- </div> -->
+<!-- Right side of the nav bar -->
+
+      </ul>
+      <!-- <header> -->
+    
+      <!-- </header>  -->
+    </div><!-- /container -->
+
+    
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/classie.js"></script>
+    <script src="https://googledrive.com/host/0B3-zO2AfoiQjWXRqUVVUX19mdFk/StyleNavBar/gnmenu.js"></script>
+    <script>
+      new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+  
+</body>
+
+
+<!--
+
+     Navigation 
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">Start</span> Bootstrap
+                </a>
+            </div>
+
+            Collect the nav links, forms, and other content for toggling 
+
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    Hidden li included to remove active class from about link when scrolled up past about section 
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+             /.navbar-collapse 
+        </div>
+        .container 
+     </nav> -->

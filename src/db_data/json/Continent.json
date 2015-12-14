@@ -1,0 +1,7 @@
+{
+    "Africa": ["Algeria", "Cameroon", "Ghana", "Ivory Coast", "Nigeria"],
+    "Asia": ["Australia", "Japan", "Korea", "Iran"],
+    "Europe": ["Bosnia and Herzegovina", "Croatia", "England", "France", "Germany", "Greece", "Italy", "Netherlands", "Portugal", "Russia", "Spain", "Switzerland"],
+    "North, Central America and Caribbean": ["Costa Rica", "Honduras", "Mexico", "USA"],
+    "South America": ["Argentina", "Brazil", "Colombia", "Chile", "Ecuador", "Uruguay"]
+}
